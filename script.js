@@ -1348,9 +1348,10 @@ function typeText() {
         charIndex++;
         setTimeout(typeText, typeSpeed);
     } else {
+        const boot = new Audio("sfx/boot.mp3");
         setTimeout(() => {
-            new Audio("sfx/boot.mp3").play();
             bootScreen.classList.add("fade-out");
+            boot.play();
             setTimeout(openWelcomeFile, 1500);
         }, 1000);
     }

@@ -29,7 +29,7 @@ So, the I hosted the chat thing on Render, so it may get inactive and won't work
 ![Node.js](https://img.shields.io/badge/Node.js-green?style=for-the-badge&logo=node.js&logoColor=white)
 
 ## Find a bug?
-[Oh no D:, a wild bug](https://github.com/codingkatty/y2kos/issues/new?template=bug.yaml) | [I have a great idea](https://github.com/codingkatty/y2kos/issues/new?template=features.yaml)
+[Oh no D:, a wild bug](https://github.com/codingkatty/y2kos/issues/new?template=bug.yaml) | [I have a great idea](https://github.com/codingkatty/y2kos/issues/new?template=feature.yaml)
 
 ## Acknoledgements
 Used AI & music/sfx are from Pixabay
