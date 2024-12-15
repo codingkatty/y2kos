@@ -1,0 +1,582 @@
+:root {
+    --button-color: #c0c0c0;
+    --taskbar-color: #d2a4a4;
+    --window-title-color: #f2426b;
+    --close-btn-color: #eeeb12;
+    --min-btn-color: #f9f4c9;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #c0f4f4;
+    background-image: url(background-ver2.png);
+    background-size: cover;
+    background-position-y: -40px;
+    font-family: 'Tiny5', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#desktop {
+    height: calc(100vh - 40px);
+    position: relative;
+}
+
+#taskbar {
+    height: 40px;
+    background: var(--taskbar-color);
+    border-top: 1px solid #fff;
+    box-shadow: 0 -1px #808080;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 75px;
+    height: 90px;
+    background: transparent;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    color: rgb(38, 32, 32);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon-image {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 5px;
+}
+
+.icon::before {
+    display: none;
+}
+
+#boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #0f0;
+    font-family: monospace;
+    padding: 20px;
+    z-index: 1000;
+    white-space: pre-line;
+    overflow: hidden;
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.window {
+    position: absolute;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    min-width: 300px;
+    min-height: 200px;
+    box-shadow: 2px 2px #000;
+    display: flex;
+    flex-direction: column;
+    resize: both;
+    overflow: auto;
+}
+
+.window-title {
+    background: var(--window-title-color);
+    color: white;
+    font-weight: bold;
+    padding: 2px 4px;
+    height: 18px;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+}
+
+.window-content {
+    padding: 10px;
+    flex-grow: 1;
+    border: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+    background: #fff;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+    margin-top: 2px;
+}
+
+.window-button {
+    width: 14px;
+    height: 14px;
+    border: 1px solid;
+    border-color: #fff #808080 #808080 #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #c0c0c0;
+}
+
+.window-button:active {
+    border-color: #808080 #fff #fff #808080;
+}
+
+.close-button {
+    background: var(--close-btn-color);
+}
+
+.minimize-button {
+    background: var(--min-btn-color);
+}
+
+.taskbar-right {
+    margin-left: auto;
+    margin-right: 20px;
+    background: #dec9c9;
+    border: 1px solid;
+    border-color: #808080 #fff #fff #808080;
+    padding: 2px 8px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.app-content {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+}
+
+.notepad-content {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    padding: 5px;
+}
+
+input[type="color"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 50px;
+    height: 25px;
+    padding: 2px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+    cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+}
+
+input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 20px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #fff, #c0c0c0);
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    cursor: pointer;
+}
+
+button {
+    background: var(--button-color);
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 1px 1px 0 #000;
+}
+
+button:active {
+    border-color: #808080 #fff #fff #808080;
+    padding: 5px 11px 3px 13px;
+    box-shadow: none;
+}
+
+.paint-canvas {
+    border: #000 2px solid;
+}
+
+.paint-tools input[type="color"] {
+    width: 40px;
+    height: 25px;
+}
+
+.paint-tools input[type="range"] {
+    width: 150px;
+}
+
+input[type="text"],
+textarea {
+    background: #fff;
+    border: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+    font-size: 12px;
+    padding: 3px 5px;
+    color: #000;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: 1px solid #000080;
+    outline-offset: -1px;
+}
+
+.calc-display {
+    background: #e8f4e8 !important;
+    font-family: monospace !important;
+    font-size: 14px !important;
+    text-align: right;
+    letter-spacing: 1px;
+    padding: 5px 8px !important;
+}
+
+.notepad-content {
+    background: #fff;
+    border: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+    font-size: 12px;
+    padding: 5px;
+    resize: none;
+    width: calc(100% - 14px);
+    height: 100px;
+}
+
+.file-explorer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.file-toolbar {
+    padding: 5px;
+    border-bottom: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+}
+
+.file-list {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 10px;
+}
+
+.file-item {
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.context-menu {
+    position: fixed;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    padding: 2px;
+}
+
+.menu-item {
+    padding: 3px 20px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #000080;
+    color: white;
+}
+
+.python-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.editor-content {
+    flex-grow: 1;
+    font-size: 14px;
+    padding: 10px;
+    resize: none;
+    background: #f8f8f8;
+    border: none;
+    outline: none;
+}
+
+.output {
+    height: 100px;
+    background: #000;
+    color: #0f0;
+    font-family: monospace;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.toolbar {
+    padding: 5px;
+    border-bottom: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+    display: flex;
+    gap: 10px;
+}
+
+.keyword {
+    color: #00f;
+}
+
+.folder {
+    margin-bottom: 20px;
+}
+
+.folder-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.folder-content {
+    padding: 10px;
+    padding-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #c0c0c0;
+    margin: 10% auto;
+    padding: 2px;
+    width: 300px;
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    box-shadow: 2px 2px #000;
+}
+
+.modal-header {
+    background: var(--window-title-color);
+    color: white;
+    font-weight: bold;
+    padding: 2px 4px;
+    height: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 10px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+}
+
+.modal-close {
+    width: 14px;
+    height: 14px;
+    background: var(--close-btn-color);
+    border: 1px solid;
+    border-color: #fff #808080 #808080 #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.modal-close:active {
+    border-color: #808080 #fff #fff #808080;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    width: 100%;
+    height: 100%;
+}
+
+.game-instructions {
+    color: #0f0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#snake {
+    border: 2px solid #0f0;
+    background-color: #000;
+}
+
+.settings {
+    padding: 20px;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.color-option {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.date-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.y2k-celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.retro-browser {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #dedbdb;
+}
+
+.browser-banner {
+    width: 90%;
+    border-bottom: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+    margin-bottom: 10px;
+}
+
+.browser-toolbar {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #dedbdb;
+    border: 2px solid;
+    border-color: #808080 #fff #fff #808080;
+}
+
+.search-bar {
+    flex-grow: 1;
+    padding: 5px 10px;
+    font-size: 14px;
+    background: #fff;
+    border: 2px inset #808080;
+    color: #000;
+}
+
+.search-bar:focus {
+    outline: 1px solid #000080;
+    outline-offset: -1px;
+}
+
+.search-btn {
+    min-width: 80px;
+    height: 28px;
+    background: linear-gradient(to bottom, #fff, #c0c0c0);
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    font-family: 'Tiny5';
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.search-btn:active {
+    border-color: #808080 #fff #fff #808080;
+    padding-top: 2px;
+}
