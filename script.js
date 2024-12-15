@@ -603,8 +603,21 @@ class AppManager {
           };
 
           ws.onmessage = (event) => {
-            const data = JSON.parse(event.data);
-            addMessage(data.username, data.message);
+            try {
+                if (event.data instanceof Blob) {
+                    event.data.text().then(text => {
+                        const data = JSON.parse(text);
+                        addMessage(data.username, data.message);
+                    }).catch(error => {
+                        console.error('Error parsing message:', error);
+                    });
+                } else {
+                    const data = JSON.parse(event.data);
+                    addMessage(data.username, data.message);
+                }
+            } catch (error) {
+                console.error('Error handling message:', error);
+            }
           };
 
           ws.onerror = (error) => {
