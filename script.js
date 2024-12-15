@@ -395,7 +395,7 @@ class AppManager {
         },
         Codédex: {
             create: () => {
-                window.open("https://www.codedex.io/community/hackathon", "_blank");
+                window.open("https://www.codedex.io/community/hackathon/mMIVccDtlC5hkuWWrJsJ", "_blank");
                 return `<div class="codedex">Redirecting to Codédex...</div>`;
             },
         },
