@@ -426,7 +426,7 @@ class AppManager {
                 canvas.height = 400;
 
                 document.addEventListener("keydown", (e) => {
-                    if (e.code === "Space") {
+                    if (e.code === "Space" && window.style.zIndex === (windowManager.zIndex - 1).toString()) {
                         e.preventDefault();
                         gameRunning = !gameRunning;
                         if (gameRunning) {
@@ -1228,10 +1228,10 @@ const desktopIcons = [
     { name: "Calculator", icon: "icons/calculator.png" },
     { name: "Paint", icon: "icons/paint.png" },
     { name: "Image Viewer", icon: "icons/picture.png" },
-    { name: "Codédex", icon: "icons/picture.png" },
-    { name: "Game", icon: "icons/picture.png" },
-    { name: "Settings", icon: "icons/picture.png" },
-    { name: "Chat", icon: "icons/picture.png" },
+    { name: "Codédex", icon: "icons/code.png" },
+    { name: "Game", icon: "icons/snake.png" },
+    { name: "Settings", icon: "icons/gear.png" },
+    { name: "Chat", icon: "icons/chat.png" },
 ];
 
 const iconsPerColumn = 5;
