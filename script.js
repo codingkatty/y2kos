@@ -585,7 +585,7 @@ class AppManager {
         let ws;
 
         function connect() {
-          ws = new WebSocket("wss://echo.websocket.org");
+          ws = new WebSocket("wss://y2kos.onrender.com");
 
           ws.onopen = () => {
             chatStatus.innerHTML = "● Connected";
