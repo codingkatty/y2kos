@@ -399,7 +399,6 @@ textarea:focus {
     gap: 15px;
 }
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
