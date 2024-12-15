@@ -18,7 +18,7 @@ So, the I hosted the chat thing on Render, so it may get inactive and won't work
 **Y2K OS** is a cool webOS I made. Made for Codédex Holiday Hackathon, I've chosen track 2 and a more... aesthetic retro theme? Well, the colors a customizable in the settings and it is pretty nice tbh. Note that there are still some bugs though.
 
 ### Cool Facts
-- The default bg picture is my school and I took the picture
+- i took the background picture in my school field
 - Intentional lag
 - Retrooo theme
 
