@@ -641,8 +641,7 @@ class AppManager {
                     const messageDiv = document.createElement("div");
                     messageDiv.className = "chat-message";
                     messageDiv.innerHTML = `
-            <span class="chat-username">${username} [${username === "User" ? userId : username.split(" ")[1]
-                        }]:</span>
+            <span class="chat-username">${username}:</span>
             <span class="chat-text">${message}</span>
             <span class="chat-time">${new Date().toLocaleTimeString()}</span>
         `;
@@ -656,7 +655,7 @@ class AppManager {
                         ws.send(
                             JSON.stringify({
                                 type: "message",
-                                username: `User ${userId}`,
+                                username: `User [${userId}]`,
                                 message: message,
                             })
                         );

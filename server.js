@@ -1,7 +1,18 @@
 const WebSocket = require('ws');
+const http = require('http');
 const PORT = process.env.PORT || 8080;
 
-const wss = new WebSocket.Server({ port: PORT });
+const server = http.createServer((req, res) => {
+    if (req.url === '/health') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ status: 'healthy', timestamp: new Date().toISOString() }));
+    } else {
+        res.writeHead(404);
+        res.end();
+    }
+});
+
+const wss = new WebSocket.Server({ server });
 
 wss.on('connection', (ws) => {
     console.log('Client connected');
@@ -29,4 +40,8 @@ wss.on('connection', (ws) => {
     ws.on('error', (error) => {
         console.error('WebSocket error:', error);
     });
+});
+
+server.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });
